@@ -5,14 +5,19 @@ import com.aizxue.confchecker.table.IRow;
 
 public class FieldImpl implements IField{
 	private String name;
-	private Object value;
+	private String cname;
 	private int type;
-	private IRow row;
+	private boolean client;
+	private boolean server;
+	private int index;
 
-	public FieldImpl(String name,Object value,int type) {
+	public FieldImpl(int index,String name,String cname,int type,boolean isClient,boolean isServer) {
 		this.name = name;
-		this.value = value;
+		this.cname = cname;
 		this.type = type;
+		this.client = isClient;
+		this.server = isServer;
+		this.index = index;
 	}
 	
 	@Override
@@ -21,22 +26,27 @@ public class FieldImpl implements IField{
 	}
 
 	@Override
-	public Object getValue() {
-		return this.value;
-	}
-
-	@Override
 	public int getType() {
 		return this.type;
 	}
 
 	@Override
-	public IRow getRow() {
-		return this.row;
+	public boolean isForClient() {
+		return true;
 	}
 
 	@Override
-	public void setRow(IRow row) {
-		this.row = row;
+	public boolean isForServer() {
+		return true;
+	}
+
+	@Override
+	public String getCName() {
+		return this.cname;
+	}
+
+	@Override
+	public int getIndex() {
+		return this.index;
 	}
 }
