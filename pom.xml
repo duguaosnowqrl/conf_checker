@@ -7,7 +7,7 @@
 	<artifactId>conf_checker</artifactId>
 	<version>${project.version}</version>
 	<name>conf_checker</name>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,5 +38,22 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.21.0.1</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			<!-- 	<includes>
+					<include>**/*.*</include>
+				</includes> -->
+			</resource>
+		</resources>
+	</build>
 </project>

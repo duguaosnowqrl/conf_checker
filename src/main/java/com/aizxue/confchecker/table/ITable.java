@@ -13,5 +13,5 @@ public interface ITable {
 	public boolean isEmpty();
 	public void setMetaData(IMetaData meta);
 	public IMetaData getMetaData();
-	public Collection<IRow> findByFieldName(String fieldName,Object value);
+//	public Collection<IRow> findByFieldName(String fieldName,Object value);
 }
