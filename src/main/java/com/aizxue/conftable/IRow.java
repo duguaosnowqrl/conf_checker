@@ -1,6 +1,4 @@
-package com.aizxue.confchecker.table;
-
-import java.util.Map;
+package com.aizxue.conftable;
 
 public interface IRow {
 	public ITable getTable();

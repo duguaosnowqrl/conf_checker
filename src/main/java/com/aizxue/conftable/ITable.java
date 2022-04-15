@@ -1,4 +1,4 @@
-package com.aizxue.confchecker.table;
+package com.aizxue.conftable;
 
 import java.util.Collection;
 

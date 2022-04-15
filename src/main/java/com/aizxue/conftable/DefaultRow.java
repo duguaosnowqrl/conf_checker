@@ -1,23 +1,16 @@
-package com.aizxue.confchecker.table.impl;
+package com.aizxue.conftable;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.poi.ss.formula.functions.Finance;
-
-import com.aizxue.confchecker.table.IField;
-import com.aizxue.confchecker.table.IRow;
-import com.aizxue.confchecker.table.ITable;
-
-public class RowImpl implements IRow{
+public class DefaultRow implements IRow{
 	private int num;
 	private ITable table;
 	private Map<String,String> valueMap; 
 	private String id;
 	
-	public  RowImpl() {
+	public  DefaultRow() {
 		this.valueMap = new HashMap<String, String>();
 	}
 

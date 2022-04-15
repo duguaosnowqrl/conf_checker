@@ -1,4 +1,4 @@
-package com.aizxue.confchecker.table;
+package com.aizxue.conftable;
 
 public class FieldAddress {
 	private String tableName;

@@ -1,4 +1,4 @@
-package com.aizxue.confchecker.table.impl.poi;
+package com.ym.bksyth.conf;
 
 import java.io.File;
 import java.util.Collection;
@@ -13,19 +13,18 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.aizxue.confchecker.exception.EmptyRowException;
 import com.aizxue.confchecker.exception.FieldNotFoundException;
 import com.aizxue.confchecker.exception.UnsupportedFieldTypeException;
-import com.aizxue.confchecker.table.FieldAddress;
-import com.aizxue.confchecker.table.IContext;
-import com.aizxue.confchecker.table.IField;
-import com.aizxue.confchecker.table.IMetaData;
-import com.aizxue.confchecker.table.IRow;
-import com.aizxue.confchecker.table.ITable;
-import com.aizxue.confchecker.table.ITableFactory;
-import com.aizxue.confchecker.table.impl.FieldImpl;
-import com.aizxue.confchecker.table.impl.MetaDataImpl;
-import com.aizxue.confchecker.table.impl.RowImpl;
-import com.aizxue.confchecker.table.impl.TableImpl;
+import com.aizxue.conftable.DefaultMetaData;
+import com.aizxue.conftable.DefaultRow;
+import com.aizxue.conftable.DefaultTable;
+import com.aizxue.conftable.FieldAddress;
+import com.aizxue.conftable.IContext;
+import com.aizxue.conftable.IField;
+import com.aizxue.conftable.IMetaData;
+import com.aizxue.conftable.ITable;
+import com.aizxue.conftable.ITableFactory;
+import com.aizxue.poi.PoiUtil;
 
-public class XlsxPoiFactory implements ITableFactory {
+public class YMGameXlsxConfFactory implements ITableFactory {
 	public static final int PRIMARY_KEY_CELL_INDEX = 0;
 	public static final int FIELD_EN_NAME_INDEX = 0;
 	public static final int FIELD_TYPE_INDEX = 1;
@@ -44,8 +43,8 @@ public class XlsxPoiFactory implements ITableFactory {
 				continue;
 			}
 
-			ITable table = new TableImpl(path, sheetName);
-			IMetaData metaData = new MetaDataImpl();
+			ITable table = new DefaultTable(path, sheetName);
+			IMetaData metaData = new DefaultMetaData();
 			table.setMetaData(metaData);
 			metaData.setTable(table);
 
@@ -131,7 +130,7 @@ public class XlsxPoiFactory implements ITableFactory {
 				}
 			}
 		}
-		FieldImpl field = new FieldImpl(index, name, cname, type, isClient, isServer);
+		YMGameField field = new YMGameField(index, name, cname, type, isClient, isServer);
 		return field;
 	}
 
@@ -179,7 +178,7 @@ public class XlsxPoiFactory implements ITableFactory {
 
 	private void parseRow(Sheet sheet, ITable table, Row row) {
 		Collection<IField> fields = table.getMetaData().fields();
-		RowImpl rowImpl = new RowImpl();
+		DefaultRow rowImpl = new DefaultRow();
 		rowImpl.setRowNum(row.getRowNum() + 1);
 
 		for (IField field : fields) {

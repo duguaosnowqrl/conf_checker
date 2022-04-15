@@ -1,14 +1,10 @@
-package com.aizxue.confchecker.table.impl;
+package com.aizxue.conftable;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.aizxue.confchecker.table.IMetaData;
-import com.aizxue.confchecker.table.IRow;
-import com.aizxue.confchecker.table.ITable;
-
-public class TableImpl implements ITable{
+public class DefaultTable implements ITable{
 	private String name;
 	private int size;
 	private String path;
@@ -17,7 +13,7 @@ public class TableImpl implements ITable{
 	private IMetaData metaData;
 	
 	
-	public TableImpl(String path,String name) {
+	public DefaultTable(String path,String name) {
 		this.path = path;
 		this.name = name;
 		this.indexToRows = new LinkedHashMap<Integer,IRow>();

@@ -1,21 +1,16 @@
-package com.aizxue.confchecker.table.impl;
+package com.aizxue.conftable;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.aizxue.confchecker.table.IField;
-import com.aizxue.confchecker.table.IMetaData;
-import com.aizxue.confchecker.table.ITable;
-
-public class MetaDataImpl implements IMetaData{
+public class DefaultMetaData implements IMetaData{
 	private ITable table;
 	private Map<String,IField> nameToFields;
 	private Map<Integer,IField> indexToFields;
 	private String primaryKey;
 	
-	public MetaDataImpl() {
+	public DefaultMetaData() {
 		this.nameToFields = new LinkedHashMap<String,IField>();
 		this.indexToFields = new LinkedHashMap<Integer, IField>();
 	}

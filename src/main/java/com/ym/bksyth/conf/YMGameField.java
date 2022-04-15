@@ -1,9 +1,9 @@
-package com.aizxue.confchecker.table.impl;
+package com.ym.bksyth.conf;
 
-import com.aizxue.confchecker.table.IField;
-import com.aizxue.confchecker.table.IRow;
+import com.aizxue.conftable.DefaultField;
+import com.aizxue.conftable.IField;
 
-public class FieldImpl implements IField{
+public class YMGameField extends DefaultField{
 	private String name;
 	private String cname;
 	private int type;
@@ -11,13 +11,10 @@ public class FieldImpl implements IField{
 	private boolean server;
 	private int index;
 
-	public FieldImpl(int index,String name,String cname,int type,boolean isClient,boolean isServer) {
-		this.name = name;
-		this.cname = cname;
-		this.type = type;
+	public YMGameField(int index,String name,String cname,int type,boolean isClient,boolean isServer) {
+		super(index,name,cname,type);
 		this.client = isClient;
 		this.server = isServer;
-		this.index = index;
 	}
 	
 	@Override
@@ -30,14 +27,12 @@ public class FieldImpl implements IField{
 		return this.type;
 	}
 
-	@Override
 	public boolean isForClient() {
-		return true;
+		return this.client;
 	}
 
-	@Override
 	public boolean isForServer() {
-		return true;
+		return this.server;
 	}
 
 	@Override

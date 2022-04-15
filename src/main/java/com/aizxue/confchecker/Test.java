@@ -1,26 +1,19 @@
 package com.aizxue.confchecker;
 
 import java.io.File;
-import java.util.Iterator;
 
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-
-import com.aizxue.confchecker.table.IContext;
-import com.aizxue.confchecker.table.ITable;
-import com.aizxue.confchecker.table.ITableFactory;
-import com.aizxue.confchecker.table.impl.ContextImpl;
-import com.aizxue.confchecker.table.impl.poi.PoiUtil;
-import com.aizxue.confchecker.table.impl.poi.XlsxPoiFactory;
+import com.aizxue.conftable.DefaultTableContext;
+import com.aizxue.conftable.IContext;
+import com.aizxue.conftable.ITable;
+import com.aizxue.conftable.ITableFactory;
+import com.ym.bksyth.conf.YMGameXlsxConfFactory;
 
 public class Test {
 	public static void main(String[] args) throws Exception {
 		String path = "E:\\jyzz\\designer\\配置表\\h伙伴相关.xlsx";
 		File file = new File(path);
-		ITableFactory factory = new XlsxPoiFactory();
-		IContext context = new ContextImpl();
+		ITableFactory factory = new YMGameXlsxConfFactory();
+		IContext context = new DefaultTableContext();
 		factory.createTable(context, path);
 		ITable table = context.getTable("Hero");
 		System.out.println(table.toString());

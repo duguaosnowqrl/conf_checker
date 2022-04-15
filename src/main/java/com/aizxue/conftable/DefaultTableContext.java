@@ -1,15 +1,13 @@
-package com.aizxue.confchecker.table.impl;
+package com.aizxue.conftable;
+
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.aizxue.confchecker.table.IContext;
-import com.aizxue.confchecker.table.ITable;
-
-public class ContextImpl implements IContext{
+public class DefaultTableContext implements IContext{
 	private Map<String,ITable> tables;
 	
-	public ContextImpl() {
+	public DefaultTableContext() {
 		this.tables = new HashMap<String, ITable>();
 	}
 

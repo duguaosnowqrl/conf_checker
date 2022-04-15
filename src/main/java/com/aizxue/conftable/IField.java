@@ -1,4 +1,4 @@
-package com.aizxue.confchecker.table;
+package com.aizxue.conftable;
 
 public interface IField {
 	public static final int TYPE_STR = 1;
@@ -12,7 +12,5 @@ public interface IField {
 	public String getName();
 	public String getCName();
 	public int getType();
-	public boolean isForClient();
-	public boolean isForServer();
 	public int getIndex();
 }
