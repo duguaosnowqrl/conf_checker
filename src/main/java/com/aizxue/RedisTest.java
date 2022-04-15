@@ -1,4 +1,4 @@
-package com.aizxue.confchecker;
+package com.aizxue;
 
 import redis.clients.jedis.Jedis;
 
